@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        echo 'Hello World'
+        echo 'Starting Client Sync Build'
+        svn 'http://cmbsvn01/svn/ifsapp/projects/core-9.0/builds/sync-client'
       }
     }
   }
