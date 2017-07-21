@@ -13,6 +13,7 @@ pipeline {
       steps {
         echo 'Starting MSBuild'
         dir('D:\\ifs\\SYNC_Pipleline\\Client\\Pub') {
+          bat "if exist Logs\\CompileClient md Logs\\CompileClient"
           bat "\"${tool 'MSBuild_40'}\" .\\Checkout\\fndbas\\source\\default.build /P:Languages=en /FL /FLP:LogFile=.\\Logs\\CompileClient\\CompileClient.log;Verbosity=normal"
         }
       }
