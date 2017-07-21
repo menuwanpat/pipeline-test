@@ -18,5 +18,13 @@ pipeline {
         }
       }
     }
+    stage('Report') {
+      steps {
+        echo 'Publishing Artificats'
+        ws('D:\\ifs\\SYNC_Pipleline\\Client\\Pub') {
+          archiveArtifacts allowEmptyArchive: true, artifacts: 'Logs/CompileClient/CompileClient.log'
+        }
+      }
+    }    
   }
 }
