@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "UPD1": {
-            node(label: 'node1') {
+            node(label: 'slave_01') {
               echo 'echo UPD1'
               sleep 15
             }
@@ -13,7 +13,7 @@ pipeline {
             
           },
           "UPD2": {
-            node(label: 'node2') {
+            node(label: 'slave_01') {
               echo 'echo UPD2'
               sleep 10
             }
@@ -21,7 +21,7 @@ pipeline {
             
           },
           "UPD3": {
-            node(label: 'node1') {
+            node(label: 'slave_01') {
               echo 'UPD3'
               sleep 20
             }
