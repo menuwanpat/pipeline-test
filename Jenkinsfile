@@ -1,7 +1,6 @@
 pipeline {
   agent any
   stages {
-    parallel(
       stage('UPD1') {
         steps {
           echo 'UPD1 Installation Test Starting'
@@ -20,7 +19,6 @@ pipeline {
           sleep 10
         }
       }
-    )   
     stage('Publish Results') {
       steps {
         echo 'Publishing results'
