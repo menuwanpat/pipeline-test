@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('UPD1') {
+    stage('Update Installaion Test') {
       steps {
         parallel(
           "UPD1": {
