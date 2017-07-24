@@ -5,30 +5,22 @@ pipeline {
       steps {
         parallel(
           "UPD1": {
-            echo 'UPD1 Installation Test Starting'
-            sleep 30
+            node(label: 'node1') {
+              echo 'echo UPD1'
+              sleep 15
+            }
+            
             
           },
           "UPD2": {
             node(label: 'node2') {
-              echo 'echo UPD1'
+              echo 'echo UPD2'
+              sleep 10
             }
             
             
           }
         )
-      }
-    }
-    stage('UPD2') {
-      steps {
-        echo 'UPD2 Installation Test Starting'
-        sleep 20
-      }
-    }
-    stage('UPD3') {
-      steps {
-        echo 'UPD3 Installation Test Starting'
-        sleep 10
       }
     }
     stage('Publish Results') {
