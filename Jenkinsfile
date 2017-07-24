@@ -19,6 +19,14 @@ pipeline {
             }
             
             
+          },
+          "UPD3": {
+            node(label: 'node1') {
+              echo 'UPD3'
+              sleep 20
+            }
+            
+            
           }
         )
       }
