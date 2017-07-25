@@ -32,6 +32,13 @@ pipeline {
             }
             
             
+          },
+          "UPD4": {
+            node(label: 'slave_02') {
+              echo 'ECHO installing UPD4'
+            }
+            
+            
           }
         )
       }
