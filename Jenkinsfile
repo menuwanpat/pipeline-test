@@ -42,7 +42,7 @@ pipeline {
             
           },
           "UPD5": {
-            node(label: 'slave_o2') {
+            node(label: 'slave_02') {
               echo 'UPD5'
               sleep 10
             }
@@ -59,7 +59,7 @@ pipeline {
           },
           "UPD7": {
             node(label: 'slave_02') {
-              echo 'UPD6'
+              echo 'UPD7'
               sleep 10
             }
             
