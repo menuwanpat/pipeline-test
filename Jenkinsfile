@@ -35,7 +35,32 @@ pipeline {
           },
           "UPD4": {
             node(label: 'slave_02') {
-              echo 'ECHO installing UPD4'
+              echo 'UPD4'
+            }
+            
+            sleep 15
+            
+          },
+          "UPD5": {
+            node(label: 'slave_o2') {
+              echo 'UPD5'
+              sleep 10
+            }
+            
+            
+          },
+          "UPD6": {
+            node(label: 'slave_02') {
+              echo 'UPD6'
+              sleep 10
+            }
+            
+            
+          },
+          "UPD7": {
+            node(label: 'slave_02') {
+              echo 'UPD6'
+              sleep 10
             }
             
             
