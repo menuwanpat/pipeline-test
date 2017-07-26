@@ -15,6 +15,8 @@ pipeline {
               sleep 15
             }
             
+            build 'Clonedatabase'
+            bat(script: 'Clonedatabase', returnStatus: true)
             
           },
           "UPD2": {
