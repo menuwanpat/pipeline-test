@@ -9,85 +9,85 @@ pipeline {
     stage('Run Update Installation Test') {
       steps {
         parallel(
-          "UPD1": {
+          "APP9 UPD1": {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=1']) {
                 ws('D:\\ifs\\UPD_IT\\scripts') {
-                  echo "START Create UPD${UPD_VALUE} Base Environment"
+                  echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                   bat 'call CloneDatabase\\Clonedatabase.cmd'
                   bat 'call CloneIFSHome\\CloneIFSHome.cmd'
-                  echo "END Create UPD${UPD_VALUE} Base Environment"
+                  echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
                 }
               }
             }
             
             
           },
-          "UPD2": {
+          "APP9 UPD2": {
             node(label: 'slave_01') {
               withEnv(['UPD_VALUE=2']) {
-                echo "START Create UPD${UPD_VALUE} Base Environment"
+                echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 sleep 10
-                echo "END Create UPD${UPD_VALUE} Base Environment"
+                echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
             
             
           },
-          "UPD3": {
+          "APP9 UPD3": {
             node(label: 'slave_01') {
               withEnv(['UPD_VALUE=3']) {
-                echo "START Create UPD${UPD_VALUE} Base Environment"
+                echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 sleep 10
-                echo "END Create UPD${UPD_VALUE} Base Environment"
+                echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
             
             
           },
-          "UPD4": {
+          "APP9 UPD4": {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=4']) {
-                echo "START Create UPD${UPD_VALUE} Base Environment"
+                echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 sleep 10
-                echo "END Create UPD${UPD_VALUE} Base Environment"
+                echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
             
             sleep 15
             
           },
-          "UPD5": {
+          "APP9 UPD5": {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=5']) {
-                echo "START Create UPD${UPD_VALUE} Base Environment"
+                echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 sleep 10
-                echo "END Create UPD${UPD_VALUE} Base Environment"
+                echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
             
             
           },
-          "UPD6": {
+          "APP9 UPD6": {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=6']) {
                 ws('D:\\ifs\\UPD_IT\\scripts') {
-                echo "START Create UPD${UPD_VALUE} Base Environment"
+                echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                   bat 'call CloneDatabase\\Clonedatabase.cmd'
                   bat 'call CloneIFSHome\\CloneIFSHome.cmd'
-                  echo "END Create UPD${UPD_VALUE} Base Environment"
+                  echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
                 }
               }
             }
             
             
           },
-          "UPD7": {
+          "APP9 UPD7": {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=7']) {
-                echo "START Create UPD${UPD_VALUE} Base Environment"
+                echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 sleep 10
-                echo "END Create UPD${UPD_VALUE} Base Environment"
+                echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
             
