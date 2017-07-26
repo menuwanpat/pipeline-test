@@ -6,6 +6,11 @@ pipeline {
     
   }
   stages {
+    stage ('Initialize') {
+      steps {
+        echo 'Initializing....'
+      }
+    }
     stage('Run Update Installation Test') {
       steps {
         parallel(
@@ -16,7 +21,7 @@ pipeline {
                   echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                   bat 'call CloneDatabase\\Clonedatabase.cmd'
                   bat 'call CloneIFSHome\\CloneIFSHome.cmd'
-                  echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
+                  echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
                 }
               }
             }
@@ -28,7 +33,7 @@ pipeline {
               withEnv(['UPD_VALUE=2']) {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 sleep 10
-                echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
+                echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
             
@@ -39,7 +44,7 @@ pipeline {
               withEnv(['UPD_VALUE=3']) {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 sleep 10
-                echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
+                echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
             
@@ -50,7 +55,7 @@ pipeline {
               withEnv(['UPD_VALUE=4']) {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 sleep 10
-                echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
+                echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
             
@@ -62,7 +67,7 @@ pipeline {
               withEnv(['UPD_VALUE=5']) {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 sleep 10
-                echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
+                echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
             
@@ -75,7 +80,7 @@ pipeline {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                   bat 'call CloneDatabase\\Clonedatabase.cmd'
                   bat 'call CloneIFSHome\\CloneIFSHome.cmd'
-                  echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
+                  echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
                 }
               }
             }
@@ -87,7 +92,7 @@ pipeline {
               withEnv(['UPD_VALUE=7']) {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 sleep 10
-                echo "END Create APP9 UPD${UPD_VALUE} Base Environment"
+                echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
             
