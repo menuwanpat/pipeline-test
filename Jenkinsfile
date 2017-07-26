@@ -10,10 +10,12 @@ pipeline {
       steps {
         parallel(
           "UPD1": {
-            node(label: 'slave_02') {
-              echo 'echo UPD1'
-              sleep 15
-              build(job: 'CloneDatabase', wait: true)
+            node(label: 'slave_02') {              
+              ws('D:\\ifs\\UPD_IT\\scripts') {
+                echo 'echo UPD1'
+                bat 'call Clonedatabase.cmd'
+                echo 'echo Database Cloned.'
+              }
             }
             
             
