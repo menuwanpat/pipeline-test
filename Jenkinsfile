@@ -13,7 +13,7 @@ pipeline {
             node(label: 'slave_02') {              
               ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo 'echo UPD1'
-                bat 'call CloneDatabase\\Clonedatabase.cmd'
+                bat 'call CloneDatabase\\Clonedatabase.cmd 1'
                 echo 'echo Database Cloned.'
               }
             }
