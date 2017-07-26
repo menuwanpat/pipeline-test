@@ -15,7 +15,9 @@ pipeline {
               ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo 'UPD1'
                 bat 'call CloneDatabase\\Clonedatabase.cmd'
-                echo 'echo Database Cloned.'
+                echo 'Database Cloned.'
+                bat 'call CloneDatabase\\CloneIFSHome.cmd'
+                echo 'echo IFSHome Cloned.'
               }
               }
             }
@@ -56,8 +58,15 @@ pipeline {
           },
           "UPD6": {
             node(label: 'slave_02') {
-              echo 'UPD6'
-              sleep 10
+              withEnv(['UPD_VALUE=6']) {
+              ws('D:\\ifs\\UPD_IT\\scripts') {
+                echo 'UPD1'
+                bat 'call CloneDatabase\\Clonedatabase.cmd'
+                echo 'Database Cloned.'
+                bat 'call CloneDatabase\\CloneIFSHome.cmd'
+                echo 'echo IFSHome Cloned.'
+              }
+              }
             }
             
             
