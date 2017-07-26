@@ -14,7 +14,7 @@ pipeline {
               withEnv(['DB_SID=D1467, A=1']) {
               ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo 'UPD1'
-                echo '${DB_SID} | ${A} | ${CUSTOM}'
+                bat 'echo %DB_SID% | %A% | %CUSTOM%'
                 bat 'call CloneDatabase\\testVariables.cmd'
                 echo 'echo Database Cloned.'
               }
@@ -25,7 +25,7 @@ pipeline {
           },
           "UPD2": {
             node(label: 'slave_01') {
-              echo 'echo UPD2'
+              echo 'UPD2'
               sleep 10
             }
             
