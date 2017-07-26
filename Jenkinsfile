@@ -6,7 +6,7 @@ pipeline {
     
   }
   stages {
-    stage('Update Installaion Test') {
+    stage('Run Update Installation Test') {
       steps {
         parallel(
           "UPD1": {
