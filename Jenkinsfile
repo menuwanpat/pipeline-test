@@ -10,13 +10,11 @@ pipeline {
       steps {
         parallel(
           "UPD1": {
-            node(label: 'slave_01') {
+            node(label: 'slave_02') {
               echo 'echo UPD1'
               sleep 15
             }
             
-            build 'Clonedatabase'
-            bat(script: 'Clonedatabase', returnStatus: true)
             
           },
           "UPD2": {
