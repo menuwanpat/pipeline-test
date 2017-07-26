@@ -11,10 +11,9 @@ pipeline {
         parallel(
           "UPD1": {
             node(label: 'slave_02') {
-              withEnv(['DB_SID=D1467, A=1, CUSTOM=${CUSTOM}']) {
+              withEnv(['DB_SID=D1467, A=1']) {
               ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo 'UPD1'
-                bat 'echo DB_SID=%DB_SID%, A=%A%, CUSTOM=%CUSTOM%'
                 bat 'call CloneDatabase\\testVariables.cmd'
                 echo 'echo Database Cloned.'
               }
