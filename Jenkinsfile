@@ -12,13 +12,12 @@ pipeline {
           "UPD1": {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=1']) {
-              ws('D:\\ifs\\UPD_IT\\scripts') {
-                echo 'UPD1'
-                bat 'call CloneDatabase\\Clonedatabase.cmd'
-                echo 'Database Cloned.'
-                bat 'call CloneDatabase\\CloneIFSHome.cmd'
-                echo 'echo IFSHome Cloned.'
-              }
+                ws('D:\\ifs\\UPD_IT\\scripts') {
+                  echo 'START Create UPD%UPD_VALUE% Base Environment'
+                  bat 'call CloneDatabase\\Clonedatabase.cmd'
+                  bat 'call CloneIFSHome\\CloneIFSHome.cmd'
+                  echo 'END Create UPD%UPD_VALUE% Base Environment'
+                }
               }
             }
             
@@ -26,23 +25,33 @@ pipeline {
           },
           "UPD2": {
             node(label: 'slave_01') {
-              echo 'UPD2'
-              sleep 10
+              withEnv(['UPD_VALUE=2']) {
+                echo 'START Create UPD%UPD_VALUE% Base Environment'
+                sleep 10
+                echo 'END Create UPD%UPD_VALUE% Base Environment'
+              }
             }
             
             
           },
           "UPD3": {
             node(label: 'slave_01') {
-              echo 'UPD3'
-              sleep 20
+              withEnv(['UPD_VALUE=3']) {
+                echo 'START Create UPD%UPD_VALUE% Base Environment'
+                sleep 10
+                echo 'END Create UPD%UPD_VALUE% Base Environment'
+              }
             }
             
             
           },
           "UPD4": {
             node(label: 'slave_02') {
-              echo 'UPD4'
+              withEnv(['UPD_VALUE=4']) {
+                echo 'START Create UPD%UPD_VALUE% Base Environment'
+                sleep 10
+                echo 'END Create UPD%UPD_VALUE% Base Environment'
+              }
             }
             
             sleep 15
@@ -50,8 +59,11 @@ pipeline {
           },
           "UPD5": {
             node(label: 'slave_02') {
-              echo 'UPD5'
-              sleep 10
+              withEnv(['UPD_VALUE=5']) {
+                echo 'START Create UPD%UPD_VALUE% Base Environment'
+                sleep 10
+                echo 'END Create UPD%UPD_VALUE% Base Environment'
+              }
             }
             
             
@@ -59,13 +71,12 @@ pipeline {
           "UPD6": {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=6']) {
-              ws('D:\\ifs\\UPD_IT\\scripts') {
-                echo 'UPD1'
-                bat 'call CloneDatabase\\Clonedatabase.cmd'
-                echo 'Database Cloned.'
-                bat 'call CloneDatabase\\CloneIFSHome.cmd'
-                echo 'echo IFSHome Cloned.'
-              }
+                ws('D:\\ifs\\UPD_IT\\scripts') {
+                  echo 'START Create UPD%UPD_VALUE% Base Environment'
+                  bat 'call CloneDatabase\\Clonedatabase.cmd'
+                  bat 'call CloneIFSHome\\CloneIFSHome.cmd'
+                  echo 'END Create UPD%UPD_VALUE% Base Environment'
+                }
               }
             }
             
@@ -73,8 +84,11 @@ pipeline {
           },
           "UPD7": {
             node(label: 'slave_02') {
-              echo 'UPD7'
-              sleep 10
+              withEnv(['UPD_VALUE=7']) {
+                echo 'START Create UPD%UPD_VALUE% Base Environment'
+                sleep 10
+                echo 'END Create UPD%UPD_VALUE% Base Environment'
+              }
             }
             
             
