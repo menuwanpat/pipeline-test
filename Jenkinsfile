@@ -12,9 +12,11 @@ pipeline {
           "UPD1": {
             node(label: 'slave_02') {              
               ws('D:\\ifs\\UPD_IT\\scripts') {
+                withEnv(['DB_SID=D1467, A=1']) {
                 echo 'echo UPD1'
-                bat 'call CloneDatabase\\Clonedatabase.cmd 1'
+                bat 'call CloneDatabase\\testVariables.cmd' 
                 echo 'echo Database Cloned.'
+                }
               }
             }
             
