@@ -14,7 +14,7 @@ pipeline {
               withEnv(['DB_SID=D1467, A=1']) {
               ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo 'UPD1'
-                echo ${DB_SID} | ${A} | ${CUSTOM}
+                echo '${DB_SID} | ${A} | ${CUSTOM}'
                 bat 'call CloneDatabase\\testVariables.cmd'
                 echo 'echo Database Cloned.'
               }
