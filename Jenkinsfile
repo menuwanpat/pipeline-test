@@ -13,6 +13,7 @@ pipeline {
             node(label: 'slave_02') {
               echo 'echo UPD1'
               sleep 15
+              build(job: 'CloneDatabase', wait: true)
             }
             
             
