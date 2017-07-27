@@ -68,7 +68,7 @@ pipeline {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=5']) {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
-                sleep 10
+                sleep 15
                 echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
