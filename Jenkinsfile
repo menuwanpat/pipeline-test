@@ -14,6 +14,17 @@ pipeline {
     stage('Run Update Installation Test') {
       steps {
         parallel(
+          "APP9 RTM": {
+            node(label: 'slave_01') {
+              withEnv(['UPD_VALUE=0']) {
+                echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
+                sleep 10
+                echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
+              }
+            }
+            
+            
+          },
           "APP9 UPD1": {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=1']) {
