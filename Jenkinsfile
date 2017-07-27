@@ -15,10 +15,15 @@ pipeline {
       steps {
         parallel(
           "APP9 RTM": {
-            node(label: 'slave_01') {
+            node(label: 'slave_02') {
               withEnv(['UPD_VALUE=0']) {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
-                sleep 10
+                bat 'call Jenkins\\deleteShare.cmd'
+                bat 'call CloneDatabase\\Clonedatabase.cmd'
+                bat 'call CopyBuildHome\\CopyBuildHome.cmd'
+                bat 'call CopyComponents\\CopyComponents.cmd'
+                bat 'call CloneIFSHome\\CloneIFSHome.cmd'
+                bat 'call Jenkins\\createShare.cmd'
                 echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
               }
             }
