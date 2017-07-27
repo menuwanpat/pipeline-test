@@ -17,6 +17,7 @@ pipeline {
           "APP9 RTM": {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=0']) {
+                ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 bat 'call Jenkins\\deleteShare.cmd'
                 bat 'call CloneDatabase\\Clonedatabase.cmd'
@@ -25,10 +26,10 @@ pipeline {
                 bat 'call CloneIFSHome\\CloneIFSHome.cmd'
                 bat 'call Jenkins\\createShare.cmd'
                 echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
+                }
               }
             }
-            
-            
+                        
           },
           "APP9 UPD1": {
             node(label: 'slave_02') {
