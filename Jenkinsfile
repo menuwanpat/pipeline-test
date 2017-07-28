@@ -24,6 +24,16 @@ pipeline {
                 bat 'call CopyBuildHome\\CopyBuildHome.cmd'
                 bat 'call CopyComponents\\CopyComponents.cmd'
                 bat 'call CloneIFSHome\\CloneIFSHome.cmd'
+                echo "START installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
+                bat '''xcopy %TOOLDIR%\\Config\\ConditionalBuildOptions.ini %BUILD_HOME% /Y
+                      call BuildComponents\\BuildComponents.cmd'''
+                bat '''if /i "%B_FICTIVE_LANGUAGE%"=="true" set FICTIVE=/P:FakeLanguage=true
+                      call Build\\Build.cmd'''
+                bat 'call PrepareDB\\PrepareDB.cmd'
+                bat 'call Install\\Install.cmd'
+                bat 'call PostDeployment\\PostDeployment.cmd'
+                bat 'call AnalyzeDbErrors\\AnalyzeDbErrors.cmd'
+                bat 'call ImportLangFiles\\ImportLangFiles.cmd'
                 bat 'call Jenkins\\createShare.cmd'
                 echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
                 }
