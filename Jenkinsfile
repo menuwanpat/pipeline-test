@@ -35,6 +35,9 @@ pipeline {
                 bat 'call Jenkins\\createShare.cmd'
                 echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
                 }
+                ws('D:\\ifs\\UPD_IT\\Pub') {
+                  cleanWs cleanWhenAborted: false, cleanWhenFailure: false, cleanWhenNotBuilt: false, cleanWhenSuccess: false, cleanWhenUnstable: false, patterns: [[pattern: 'Logs/**', type: 'INCLUDE'], [pattern: '', type: 'INCLUDE']]
+                }
               }
             }
                         
