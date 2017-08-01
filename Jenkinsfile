@@ -37,7 +37,7 @@ pipeline {
                 echo "STOP installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
                 }
                 ws('D:\\ifs\\UPD_IT\\Pub') {
-                  cleanWs cleanWhenAborted: false, cleanWhenFailure: false, cleanWhenNotBuilt: false, cleanWhenSuccess: false, cleanWhenUnstable: false, patterns: [[pattern: 'Logs/AutoBuilder/**', type: 'INCLUDE'], [pattern: '', type: 'INCLUDE']]
+                  cleanWs cleanWhenAborted: false, cleanWhenFailure: true, cleanWhenNotBuilt: false, cleanWhenSuccess: false, cleanWhenUnstable: false, patterns: [[pattern: 'Logs/AutoBuilder/**', type: 'INCLUDE'], [pattern: '', type: 'INCLUDE']]
                 }
               }
             }
