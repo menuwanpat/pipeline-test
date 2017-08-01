@@ -24,6 +24,7 @@ pipeline {
                 bat 'call CopyBuildHome\\CopyBuildHome.cmd'*/
                 bat 'call CopyComponents\\CopyComponents.cmd'
                 //bat 'call CloneIFSHome\\CloneIFSHome.cmd'
+                echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
                 echo "START installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
                 bat 'call BuildComponents\\BuildComponents.cmd && call jenkins\\waitOnErrors.cmd BuildComponents'
                 bat 'call Build\\Build.cmd && call jenkins\\waitOnErrors.cmd Build'
@@ -33,7 +34,7 @@ pipeline {
                 bat 'call AnalyzeDbErrors\\AnalyzeDbErrors.cmd'
                 bat 'call ImportLangFiles\\ImportLangFiles.cmd && call jenkins\\waitOnErrors.cmd ImportLangFiles'
                 bat 'call Jenkins\\createShare.cmd'
-                echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
+                echo "STOP installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
                 }
                 ws('D:\\ifs\\UPD_IT\\Pub') {
                   cleanWs cleanWhenAborted: false, cleanWhenFailure: false, cleanWhenNotBuilt: false, cleanWhenSuccess: false, cleanWhenUnstable: false, patterns: [[pattern: 'Logs/AutoBuilder/**', type: 'INCLUDE'], [pattern: '', type: 'INCLUDE']]
