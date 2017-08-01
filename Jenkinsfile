@@ -16,7 +16,7 @@ pipeline {
         parallel(
           "APP9 RTM": {
             node(label: 'slave_02') {
-              withEnv(['UPD_VALUE=0', 'DB_SERVER=cmbpde1467', 'DB_SERVER=cmbpde1467']) {
+              withEnv(['UPD_VALUE=0', 'DB_SERVER=cmbpde1467', 'EXTENDED_SERVER=cmbpde1467']) {
                 ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
                 /* bat 'call Jenkins\\deleteShare.cmd'
