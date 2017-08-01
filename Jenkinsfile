@@ -19,11 +19,11 @@ pipeline {
               withEnv(['UPD_VALUE=0', 'DB_SERVER=cmbpde1467']) {
                 ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
-                bat 'call Jenkins\\deleteShare.cmd'
+                /* bat 'call Jenkins\\deleteShare.cmd'
                 bat 'call CloneDatabase\\Clonedatabase.cmd'
                 bat 'call CopyBuildHome\\CopyBuildHome.cmd'
                 bat 'call CopyComponents\\CopyComponents.cmd'
-                bat 'call CloneIFSHome\\CloneIFSHome.cmd'
+                bat 'call CloneIFSHome\\CloneIFSHome.cmd'*/
                 echo "START installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
                 bat 'call BuildComponents\\BuildComponents.cmd && call jenkins\\waitOnErrors.cmd BuildComponents'
                 bat 'call Build\\Build.cmd && call jenkins\\waitOnErrors.cmd Build'
