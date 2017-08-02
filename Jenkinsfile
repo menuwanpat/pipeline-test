@@ -33,6 +33,7 @@ pipeline {
                 bat 'call PostDeployment\\PostDeployment.cmd'
                 bat 'call AnalyzeDbErrors\\AnalyzeDbErrors.cmd'
                 bat 'call ImportLangFiles\\ImportLangFiles.cmd && call jenkins\\waitOnErrors.cmd ImportLangFiles'
+                bat 'call PublishLogs\\PublishLogs.cmd'
                 bat 'call Jenkins\\createShare.cmd'
                 echo "STOP installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
                 }
