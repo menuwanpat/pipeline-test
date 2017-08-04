@@ -49,14 +49,25 @@ pipeline {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=1']) {
                 ws('D:\\ifs\\UPD_IT\\scripts') {
-                  echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
-                  //bat 'call Jenkins\\deleteShare.cmd'
-                  //bat 'call CloneDatabase\\Clonedatabase.cmd'
-                  //bat 'call CopyBuildHome\\CopyBuildHome.cmd'
-                  //bat 'call CopyComponents\\CopyComponents.cmd'
-                  //bat 'call CloneIFSHome\\CloneIFSHome.cmd'
-                  //bat 'call Jenkins\\createShare.cmd'
-                  echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
+                echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
+                bat 'call Jenkins\\deleteShare.cmd'
+                bat 'call Initialize.cmd'
+                bat 'call CloneDatabase\\Clonedatabase.cmd'
+                bat 'call CopyBuildHome\\CopyBuildHome.cmd'
+                bat 'call CopyComponents\\CopyComponents.cmd'
+                bat 'call CloneIFSHome\\CloneIFSHome.cmd'
+                echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
+                echo "START installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
+                bat 'call BuildComponents\\BuildComponents.cmd && call jenkins\\waitOnErrors.cmd BuildComponents'
+                bat 'call Build\\Build.cmd && call jenkins\\waitOnErrors.cmd Build'
+                bat 'call PrepareDB\\PrepareDB.cmd && call jenkins\\waitOnErrors.cmd PrepareDB'
+                bat 'call Install\\Install.cmd && call jenkins\\waitOnErrors.cmd Install'
+                bat 'call PostDeployment\\PostDeployment.cmd'
+                bat 'call AnalyzeDbErrors\\AnalyzeDbErrors.cmd'
+                bat 'call ImportLangFiles\\ImportLangFiles.cmd && call jenkins\\waitOnErrors.cmd ImportLangFiles'
+                bat 'call PublishLogs\\PublishLogs.cmd'
+                bat 'call Jenkins\\createShare.cmd'
+                echo "STOP installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
                 }
               }
             }
@@ -111,15 +122,26 @@ pipeline {
           "APP9 UPD6": {
             node(label: 'slave_02') {
               withEnv(['UPD_VALUE=6']) {
-                ws('D:\\ifs\\UPD_IT\\scripts') {
+                 ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
-                  /*bat 'call Jenkins\\deleteShare.cmd'
-                  bat 'call CloneDatabase\\Clonedatabase.cmd'
-                  bat 'call CopyBuildHome\\CopyBuildHome.cmd'
-                  bat 'call CopyComponents\\CopyComponents.cmd'
-                  bat 'call CloneIFSHome\\CloneIFSHome.cmd'
-                  bat 'call Jenkins\\createShare.cmd'*/
-                  echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
+                bat 'call Jenkins\\deleteShare.cmd'
+                bat 'call Initialize.cmd'
+                bat 'call CloneDatabase\\Clonedatabase.cmd'
+                bat 'call CopyBuildHome\\CopyBuildHome.cmd'
+                bat 'call CopyComponents\\CopyComponents.cmd'
+                bat 'call CloneIFSHome\\CloneIFSHome.cmd'
+                echo "STOP Create APP9 UPD${UPD_VALUE} Base Environment"
+                echo "START installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
+                bat 'call BuildComponents\\BuildComponents.cmd && call jenkins\\waitOnErrors.cmd BuildComponents'
+                bat 'call Build\\Build.cmd && call jenkins\\waitOnErrors.cmd Build'
+                bat 'call PrepareDB\\PrepareDB.cmd && call jenkins\\waitOnErrors.cmd PrepareDB'
+                bat 'call Install\\Install.cmd && call jenkins\\waitOnErrors.cmd Install'
+                bat 'call PostDeployment\\PostDeployment.cmd'
+                bat 'call AnalyzeDbErrors\\AnalyzeDbErrors.cmd'
+                bat 'call ImportLangFiles\\ImportLangFiles.cmd && call jenkins\\waitOnErrors.cmd ImportLangFiles'
+                bat 'call PublishLogs\\PublishLogs.cmd'
+                bat 'call Jenkins\\createShare.cmd'
+                echo "STOP installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
                 }
               }
             }
