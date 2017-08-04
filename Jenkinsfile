@@ -19,7 +19,7 @@ pipeline {
               withEnv(['UPD_VALUE=0', 'DB_SERVER=cmbpde1467', 'EXTENDED_SERVER=cmbpde1467']) {
                 ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
-               /* bat 'call Jenkins\\deleteShare.cmd'
+                bat 'call Jenkins\\deleteShare.cmd'
                 bat 'call Initialize.cmd'
                 bat 'call CloneDatabase\\Clonedatabase.cmd'
                 bat 'call CopyBuildHome\\CopyBuildHome.cmd'
@@ -35,7 +35,7 @@ pipeline {
                 bat 'call AnalyzeDbErrors\\AnalyzeDbErrors.cmd'
                 bat 'call ImportLangFiles\\ImportLangFiles.cmd && call jenkins\\waitOnErrors.cmd ImportLangFiles'
                 bat 'call PublishLogs\\PublishLogs.cmd'
-                bat 'call Jenkins\\createShare.cmd'*/
+                bat 'call Jenkins\\createShare.cmd'
                 echo "STOP installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
                 }
                 ws('D:\\ifs\\UPD_IT\\Pub') {
@@ -50,7 +50,7 @@ pipeline {
               withEnv(['UPD_VALUE=1']) {
                 ws('D:\\ifs\\UPD_IT\\scripts') {
                 echo "START Create APP9 UPD${UPD_VALUE} Base Environment"
-                /*bat 'call Jenkins\\deleteShare.cmd'
+                bat 'call Jenkins\\deleteShare.cmd'
                 bat 'call Initialize.cmd'
                 bat 'call CloneDatabase\\Clonedatabase.cmd'
                 bat 'call CopyBuildHome\\CopyBuildHome.cmd'
@@ -66,7 +66,7 @@ pipeline {
                 bat 'call AnalyzeDbErrors\\AnalyzeDbErrors.cmd'
                 bat 'call ImportLangFiles\\ImportLangFiles.cmd && call jenkins\\waitOnErrors.cmd ImportLangFiles'
                 bat 'call PublishLogs\\PublishLogs.cmd'
-                bat 'call Jenkins\\createShare.cmd'*/
+                bat 'call Jenkins\\createShare.cmd'
                 echo "STOP installing delivery to APP9 UPD${UPD_VALUE} Base Environment"
                 }
               }
